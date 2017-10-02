@@ -6,6 +6,7 @@
  */
 namespace Magestore\SupplierSuccess\Ui\Component\Listing\Columns\Supplier;
 
+use Magento\Framework\Stdlib\BooleanUtils;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
@@ -23,23 +24,24 @@ class LastPurchaseOn extends \Magento\Ui\Component\Listing\Columns\Date
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param TimezoneInterface $timezone
-     * @param \Magento\Framework\Module\Manager $moduleManager
+     * @param BooleanUtils $booleanUtils
      * @param array $components
      * @param array $data
+     * @param \Magento\Framework\Module\Manager $moduleManager
      */
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
         TimezoneInterface $timezone,
-        \Magento\Framework\Module\Manager $moduleManager,
+        BooleanUtils $booleanUtils,
         array $components = [],
-        array $data = []
-    )
-    {
-        parent::__construct($context, $uiComponentFactory, $timezone, $components, $data);
+        array $data = [],
+        \Magento\Framework\Module\Manager $moduleManager
+    ){
+        parent::__construct($context, $uiComponentFactory, $timezone, $booleanUtils, $components, $data);
         $this->moduleManager = $moduleManager;
     }
-    
+
     /**
      * Prepare component configuration
      *
