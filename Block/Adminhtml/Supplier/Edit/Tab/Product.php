@@ -140,6 +140,7 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
                 'values' => $this->_getSelectedProducts(),
                 'index' => 'product_id',
                 'header_css_class' => 'col-select col-massaction',
+                'filter' => false,
                 'column_css_class' => 'col-select col-massaction'
             ]
         );
@@ -184,7 +185,7 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
             [
                 'header' => __('Action'),
                 'renderer' => 'Magestore\SupplierSuccess\Block\Adminhtml\Supplier\Edit\Tab\Product\Delete',
-                'filters' => false,
+                'filter' => false,
                 'sortable' => false,
             ]
         );
