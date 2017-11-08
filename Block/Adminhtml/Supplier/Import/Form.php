@@ -11,16 +11,14 @@ namespace Magestore\SupplierSuccess\Block\Adminhtml\Supplier\Import;
  * Class Form
  * @package Magestore\SupplierSuccess\Block\Adminhtml\Supplier\Import
  */
-class Form extends  \Magento\Backend\Block\Widget\Form\Generic
+class Form extends  \Magento\Backend\Block\Template
 {
 
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
-        \Magento\Framework\Registry $registry,
-        \Magento\Framework\Data\FormFactory $formFactory,
         array $data = []
     ) {
-        parent::__construct($context, $registry, $formFactory, $data);
+        parent::__construct($context,  $data);
         $this->urlBuilder = $context->getUrlBuilder();
         $this->setUseContainer(true);
     }
