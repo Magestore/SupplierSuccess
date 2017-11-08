@@ -8,37 +8,19 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Magestore_OrderSuccess::all"
-                          title="Order Success"
-                          translate="title"
-                          sortOrder="1">
-                    <resource id="Magestore_SupplierSuccess::supplier"
-                              title="Supplier Management"
-                              translate="title"
-                              sortOrder="1">
+                <resource id="Magestore_OrderSuccess::all" title="Order Success" translate="title" sortOrder="1">
+                    <resource id="Magestore_SupplierSuccess::supplier" title="Supplier Management" translate="title" sortOrder="1">
                         <!-- Supplier Section -->
-                        <resource id="Magestore_SupplierSuccess::supplier_listing"
-                                  title="Supplier Listing"
-                                  translate="title"
-                                  sortOrder="0">
+                        <resource id="Magestore_SupplierSuccess::supplier_listing" title="Supplier Listing" translate="title" sortOrder="0">
                         </resource>
-                        <resource id="Magestore_SupplierSuccess::view_supplier"
-                                  title="Supplier Editing"
-                                  translate="title"
-                                  sortOrder="10">
+                        <resource id="Magestore_SupplierSuccess::view_supplier" title="Supplier Editing" translate="title" sortOrder="10">
                         </resource>
                         <!-- End Supplier Section -->
 
                         <!-- Pricelist Section -->
-                        <resource id="Magestore_SupplierSuccess::supplier_pricinglist"
-                                  title="Pricelist"
-                                  translate="title"
-                                  sortOrder="20">
+                        <resource id="Magestore_SupplierSuccess::supplier_pricinglist" title="Pricelist" translate="title" sortOrder="20">
                         </resource>
-                        <resource id="Magestore_SupplierSuccess::supplier_pricinglist_edit"
-                                  title="Editing Pricelist"
-                                  translate="title"
-                                  sortOrder="30">
+                        <resource id="Magestore_SupplierSuccess::supplier_pricinglist_edit" title="Editing Pricelist" translate="title" sortOrder="30">
                         </resource>
                         <!-- End Pricelist Section -->                                       
                     </resource>

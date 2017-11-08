@@ -15,8 +15,7 @@
             <uiComponent name="os_supplier_pricinglist_form"/>
         </referenceContainer>
         <referenceContainer name="os_supplier_pricinglist_form">
-            <block  class="Magestore\SupplierSuccess\Block\Adminhtml\Supplier\Import\PricingList\Form" name="import-form"
-                    template="Magestore_SupplierSuccess::import/form.phtml">
+            <block  class="Magestore\SupplierSuccess\Block\Adminhtml\Supplier\Import\PricingList\Form" name="import-form" template="Magestore_SupplierSuccess::import/form.phtml">
                 <arguments>
                     <argument name="config" xsi:type="array">
                         <item name="label" xsi:type="string" translate="true"> </item>
