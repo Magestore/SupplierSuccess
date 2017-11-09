@@ -30,6 +30,7 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
     const MAPPING_FIELDS = [
         'total_sku' => 'COUNT(DISTINCT(supplier_product.supplier_product_id))',
         'last_purchase_order_on' => 'MAX(purchase_order.purchased_at)',
+        'status' => 'main_table.status',
         'purchase_order_value' => 'SUM(DISTINCT(IFNULL(purchase_order.grand_total_incl_tax,0)))',
     ];
 

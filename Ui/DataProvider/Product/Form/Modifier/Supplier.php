@@ -420,7 +420,7 @@ class Supplier implements \Magento\Ui\DataProvider\Modifier\ModifierInterface
                             'additionalClasses' => 'admin__field-small',
                             'sortOrder' => 30,
                             'validation' => [
-                                'required-entry' => true,
+//                                'required-entry' => true,
                             ],
                         ],
                     ],
