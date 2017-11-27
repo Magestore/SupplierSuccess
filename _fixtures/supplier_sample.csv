@@ -1,0 +1,2 @@
+supplier_code,supplier_name,contact_name,contact_email,telephone,fax,street,city,country_id,region,postcode,website,description,status
+magestore,Magestore,Magestore,magestore@magestore.com,16066570768,,1750 Montgomery Street 1st Floor,San Francisco,US,CA,94111,magestore.com,This is sample supplier,1

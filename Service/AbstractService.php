@@ -14,6 +14,11 @@ abstract class AbstractService
 {
 
     /**
+     * @var \Magestore\SupplierSuccess\Model\SupplierFactory
+     */
+    protected $supplierFactory;
+
+    /**
      * @var \Magestore\SupplierSuccess\Model\ResourceModel\SupplierFactory
      */
     protected $_supplierResourceFactory;
@@ -81,6 +86,7 @@ abstract class AbstractService
     protected $emailService;
 
     public function __construct(
+        \Magestore\SupplierSuccess\Model\SupplierFactory $supplierFactory,
         \Magestore\SupplierSuccess\Model\ResourceModel\SupplierFactory $supplierResourceFactory,
         \Magestore\SupplierSuccess\Model\ResourceModel\Supplier\CollectionFactory $supplierCollectionFactory,
         \Magestore\SupplierSuccess\Model\ResourceModel\Supplier\ProductFactory $supplierProductResourceFactory,
@@ -95,6 +101,7 @@ abstract class AbstractService
         CountryFactory $countryFactory,
         EmailService $emailService
     ) {
+        $this->supplierFactory = $supplierFactory;
         $this->_supplierResourceFactory = $supplierResourceFactory;
         $this->_supplierProductResourceFactory = $supplierProductResourceFactory;
         $this->supplierPricingListResourceFactory = $supplierPricingListResourceFactory;
