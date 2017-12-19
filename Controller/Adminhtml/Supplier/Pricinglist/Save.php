@@ -49,6 +49,7 @@ class Save extends AbstractSupplier
                 $post['product_id'] = $post['id'];
                 unset($post['id']);
                 unset($post['position']);
+                unset($post['record_id']);
                 $post['supplier_id'] = $supplierId;
                 if ($post['start_date']) {
                     $post['start_date'] = date('Y-m-d', strtotime($post['start_date']));
