@@ -114,4 +114,48 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         }
         return parent::setOrder($field, $direction);
     }
+    /**
+     * Retrieve all ids for collection
+     *
+     * @param int|string $limit
+     * @param int|string $offset
+     * @return array
+     */
+    public function getAllIds($limit = null, $offset = null)
+    {
+        $idsSelect = $this->_getClearSelect();
+        $idsSelect->columns('main_table.supplier_id');
+        $idsSelect->limit($limit, $offset);
+        $idsSelect->resetJoinLeft();
+
+        return $this->getConnection()->fetchCol($idsSelect, $this->_bindParams);
+    }
+    /**
+     * Retrieve clear select
+     *
+     * @return \Magento\Framework\DB\Select
+     */
+    protected function _getClearSelect()
+    {
+        return $this->_buildClearSelect();
+    }
+
+    /**
+     * Build clear select
+     *
+     * @param \Magento\Framework\DB\Select $select
+     * @return \Magento\Framework\DB\Select
+     */
+    protected function _buildClearSelect($select = null)
+    {
+        if (null === $select) {
+            $select = clone $this->getSelect();
+        }
+        $select->reset(\Magento\Framework\DB\Select::ORDER);
+        $select->reset(\Magento\Framework\DB\Select::LIMIT_COUNT);
+        $select->reset(\Magento\Framework\DB\Select::LIMIT_OFFSET);
+        $select->reset(\Magento\Framework\DB\Select::COLUMNS);
+
+        return $select;
+    }
 }
