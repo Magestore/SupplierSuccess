@@ -93,9 +93,29 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         foreach (self::MAPPING_FIELDS as $alias => $column) {
             if ($field == $alias) {
                 $field = new \Zend_Db_Expr($column);
+                if($alias == 'last_purchase_order_on') {
+                    $resultCondition = $this->_translateCondition($field, $condition);
+                    $this->_select->having($resultCondition, null, \Magento\Framework\DB\Select::TYPE_CONDITION);
+                    return $this;
+                }
             }
         }
         return parent::addFieldToFilter($field, $condition);
+    }
+
+    /**
+     * Get collection size
+     *
+     * @return int
+     */
+    public function getSize()
+    {
+        if ($this->_totalRecords === null) {
+            $sql = $this->getSelectCountSql();
+            $sql->group('main_table.supplier_id');
+            $this->_totalRecords = $this->getConnection()->fetchOne($sql, $this->_bindParams);
+        }
+        return intval($this->_totalRecords);
     }
 
     /**
