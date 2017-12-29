@@ -92,4 +92,18 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         }
         return parent::setOrder($field, $direction);
     }
+
+    /**
+     * @param $field
+     * @param $direction
+     * @return mixed
+     */
+    public function addOrder($field, $direction = self::SORT_ORDER_DESC)
+    {
+        if($field == 'supplier_id')
+            $field = 'main_table.supplier_id';
+
+        return parent::addOrder($field, $direction);
+
+    }
 }
