@@ -113,9 +113,9 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         if ($this->_totalRecords === null) {
             $sql = $this->getSelectCountSql();
             $sql->group('main_table.supplier_id');
-            $this->_totalRecords = $this->getConnection()->fetchOne($sql, $this->_bindParams);
+            $this->_totalRecords = $this->getConnection()->fetchAll($sql, $this->_bindParams);
         }
-        return intval($this->_totalRecords);
+        return count($this->_totalRecords);
     }
 
     /**
