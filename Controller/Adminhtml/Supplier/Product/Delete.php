@@ -28,12 +28,12 @@ class Delete extends \Magestore\SupplierSuccess\Controller\Adminhtml\AbstractSup
                 'Magento\Ui\Component\MassAction\Filter'
             );
             $supplierProductCollection = $filter->getCollection($supplierProductCollection);
-//            if (isset($data['selected'])) {
-//                $supplierProductCollection->addFieldToFilter('product_id', ['in' => $data['selected']]);
-//            }
-//            if (isset($data['excluded'])) {
-//                $supplierProductCollection->addFieldToFilter('product_id', ['nin' => $data['excluded']]);
-//            }
+            if (isset($data['selected'])) {
+                $supplierProductCollection->addFieldToFilter('supplier_product_id', ['in' => $data['selected']]);
+            }
+            if (isset($data['excluded'])) {
+                $supplierProductCollection->addFieldToFilter('supplier_product_id', ['nin' => $data['excluded']]);
+            }
             if ($supplierProductCollection->getSize()) {
                 try {
                     foreach ($supplierProductCollection as $supplierProduct) {
