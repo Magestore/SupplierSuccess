@@ -75,7 +75,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
             "main_table.product_sku = catalog_product.sku",
             ['product_id' => 'catalog_product.entity_id']
         );
-        $select->order('main_table.cost ASC');
+        $select->order('main_table.minimal_qty ASC');
         $result = $this->getConnection()->fetchAll($select);
         return $result;
     }

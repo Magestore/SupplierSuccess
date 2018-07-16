@@ -21,9 +21,18 @@ define([
         initFilter: function () {
             var filter = this.filterBy;
             var country = registry.get(this.parentName + '.' + 'country_id');
-            
+
             this.filter(country.value(), filter.field);
-            
+
+            /*
+             * Clear wrong data from previous version
+             *
+             * https://github.com/Magestore/SupplierSuccess/issues/12
+             */
+            if (0 === this.options.length) {
+                this.value('');
+            }
+
             this.setLinks({
                 filter: filter.target
             }, 'imports');
@@ -42,8 +51,23 @@ define([
             if (!value) {
                 return;
             }
-            
+
             this.filter(value, this.filterBy.field);
+        },
+
+        /**
+         * @inheritDoc
+         */
+        clear: function () {
+            /*
+             * Fix clear options (set default depends on country)
+             *
+             * https://github.com/Magestore/SupplierSuccess/issues/12
+             */
+            var filter = this.filterBy;
+            var country = registry.get(this.parentName + '.' + 'country_id');
+            this.filter(country.value(), filter.field);
+            return this._super();
         },
 
         /**
@@ -54,7 +78,7 @@ define([
          * @param {String} field
          */
         filter: function (value, field) {
-            
+
             var country = registry.get(this.parentName + '.' + 'country_id'),
                 option = country.indexedOptions[value];
 
