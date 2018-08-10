@@ -52,12 +52,20 @@ class Save extends AbstractSupplier
                 unset($post['record_id']);
                 $post['supplier_id'] = $supplierId;
                 if ($post['start_date']) {
-                    $post['start_date'] = date('Y-m-d', strtotime($post['start_date']));
+                    $post['start_date'] = date('Y-m-d', (new \IntlDateFormatter(
+                        $this->_localeResolver->getLocale(),
+                        \IntlDateFormatter::SHORT,
+                        \IntlDateFormatter::NONE
+                    ))->parse($post['start_date']));
                 } else {
                     $post['start_date'] = null;
                 }
                 if ($post['end_date']) {
-                    $post['end_date'] = date('Y-m-d', strtotime($post['end_date']));
+                    $post['end_date'] = date('Y-m-d', (new \IntlDateFormatter(
+                        $this->_localeResolver->getLocale(),
+                        \IntlDateFormatter::SHORT,
+                        \IntlDateFormatter::NONE
+                    ))->parse($post['end_date']));
                 } else {
                     $post['end_date'] = null;
                 }

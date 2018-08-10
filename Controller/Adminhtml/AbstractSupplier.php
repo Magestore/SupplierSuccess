@@ -110,6 +110,11 @@ abstract class AbstractSupplier extends \Magento\Backend\App\Action
     protected $supplierPricingListCollectionFactory;
 
     /**
+     * @var \Magento\Framework\Locale\ResolverInterface
+     */
+    protected $_localeResolver;
+
+    /**
      * AbstractSupplier constructor.
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
@@ -131,6 +136,7 @@ abstract class AbstractSupplier extends \Magento\Backend\App\Action
      * @param Filter $filter
      * @param JsonFactory $jsonFactory
      * @param \Magento\Framework\Filesystem $filesystem
+     * @param \Magento\Framework\Locale\ResolverInterface $localeResolver
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
@@ -151,7 +157,8 @@ abstract class AbstractSupplier extends \Magento\Backend\App\Action
         \Magestore\SupplierSuccess\Model\ResourceModel\Supplier\PricingList\CollectionFactory $supplierPricingListCollectionFactory,
         Filter $filter,
         JsonFactory $jsonFactory,
-        \Magento\Framework\Filesystem $filesystem
+        \Magento\Framework\Filesystem $filesystem,
+        \Magento\Framework\Locale\ResolverInterface $localeResolver
     ) {
         $this->_resultPageFactory = $resultPageFactory;
         $this->_resultLayoutFactory = $resultLayoutFactory;
@@ -172,6 +179,7 @@ abstract class AbstractSupplier extends \Magento\Backend\App\Action
         $this->filter = $filter;
         $this->jsonFactory = $jsonFactory;
         $this->filesystem = $filesystem;
+        $this->_localeResolver =  $localeResolver;
         parent::__construct($context);
     }
 }
