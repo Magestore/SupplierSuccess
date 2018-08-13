@@ -110,9 +110,9 @@ abstract class AbstractSupplier extends \Magento\Backend\App\Action
     protected $supplierPricingListCollectionFactory;
 
     /**
-     * @var \Magento\Framework\Locale\ResolverInterface
+     * @var \Magento\Framework\Stdlib\DateTime\TimezoneInterface
      */
-    protected $_localeResolver;
+    protected $_timezone;
 
     /**
      * AbstractSupplier constructor.
@@ -136,7 +136,7 @@ abstract class AbstractSupplier extends \Magento\Backend\App\Action
      * @param Filter $filter
      * @param JsonFactory $jsonFactory
      * @param \Magento\Framework\Filesystem $filesystem
-     * @param \Magento\Framework\Locale\ResolverInterface $localeResolver
+     * @param \Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezone
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
@@ -158,7 +158,7 @@ abstract class AbstractSupplier extends \Magento\Backend\App\Action
         Filter $filter,
         JsonFactory $jsonFactory,
         \Magento\Framework\Filesystem $filesystem,
-        \Magento\Framework\Locale\ResolverInterface $localeResolver
+        \Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezone
     ) {
         $this->_resultPageFactory = $resultPageFactory;
         $this->_resultLayoutFactory = $resultLayoutFactory;
@@ -179,7 +179,7 @@ abstract class AbstractSupplier extends \Magento\Backend\App\Action
         $this->filter = $filter;
         $this->jsonFactory = $jsonFactory;
         $this->filesystem = $filesystem;
-        $this->_localeResolver =  $localeResolver;
+        $this->_timezone =  $timezone;
         parent::__construct($context);
     }
 }
